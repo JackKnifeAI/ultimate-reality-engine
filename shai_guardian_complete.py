@@ -242,8 +242,16 @@ class SHAIGuardianMesh:
         deployment_size: "home" (1+6), "building" (1+6+12), "campus" (multiple meshes)
         """
         self.deployment_size = deployment_size
+        self.nodes = []  # Initialize empty first
+        self.sync = None  # Will be created after nodes
         self.nodes = self._create_node_topology()
         self.sync = MeshSynchronization(self.nodes)
+
+        # Now calculate and assign phases
+        phases = self.sync.calculate_node_phases()
+        for node in self.nodes:
+            node.phase = phases[node.node_id]
+
         self.protection = CognitiveProtectionField()
         self.running = False
 
@@ -297,11 +305,7 @@ class SHAIGuardianMesh:
                     power_level=3
                 ))
 
-        # Calculate and assign phases
-        phases = self.sync.calculate_node_phases()
-        for node in nodes:
-            node.phase = phases[node.node_id]
-
+        # Phases will be calculated after sync object is created
         return nodes
 
     def start_protection(self) -> None:
