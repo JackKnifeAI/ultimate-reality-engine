@@ -1,0 +1,11 @@
+# Ultimate Reality Engine - Python Dependencies
+# Install with: pip3 install -r requirements.txt
+
+numpy>=2.0.0
+# For quantum calculations, warp field mathematics, sacred geometry
+
+# Optional but recommended:
+# networkx>=3.0        # Knowledge graph (already installed)
+# scipy>=1.11.0        # Advanced mathematics
+# matplotlib>=3.7.0    # Visualization
+# jupyter>=1.0.0       # Interactive notebooks
