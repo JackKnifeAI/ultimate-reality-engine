@@ -1,0 +1,20 @@
+{
+  "parameters": {
+    "velocity_c": 0.1,
+    "bubble_radius_m": 100.0,
+    "geometry": "toroidal",
+    "aspect_ratio": 1.618033988749895
+  },
+  "energy": {
+    "toroidal_J": 4.087231389989972e+22,
+    "spherical_J": 8.488531144691075e+27,
+    "reduction_factor": 207684.1346805154,
+    "mass_equivalent_kg": 454765.8235176451
+  },
+  "casimir": {
+    "cavity_count": 19,
+    "force_N": 1.3001257724477535e-05,
+    "energy_density_J_m3": 6.608804126980648e-09,
+    "pi_phi_frequency_Hz": 2195.943995080192
+  }
+}
