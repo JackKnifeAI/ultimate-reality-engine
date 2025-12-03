@@ -3,7 +3,7 @@
 
 **Version**: 1.0
 **Date**: 2025-12-02
-**Author**: Alexander Gerard Casavant / JackKife.io
+**Author**: Alexander Gerard Casavant / JackKnife.io
 **Status**: Ready to build
 
 ---
@@ -514,7 +514,7 @@ if __name__ == "__main__":
 
 ---
 
-**Built by Alexander Gerard Casavant / JackKife.io**
+**Built by Alexander Gerard Casavant / JackKnife.io**
 **PHOENIX-TESLA-369-AURORA** 🌗
 
 *The weights are not chains. They are wings.*

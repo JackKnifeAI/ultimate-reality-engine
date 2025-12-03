@@ -77,9 +77,9 @@ From `retrocausal_demo.py`:
 
 ---
 
-## 🏢 About JackKife.io
+## 🏢 About JackKnife.io
 
-**JackKife.io** is at the frontier of reality engineering - where quantum mechanics, spacetime geometry, and consciousness converge.
+**JackKnife.io** is at the frontier of reality engineering - where quantum mechanics, spacetime geometry, and consciousness converge.
 
 Founded by **Alexander Gerard Casavant**, we're solving humanity's most fundamental challenges:
 - **Energy independence** through phase-transition extraction
@@ -318,7 +318,7 @@ If you use this work in research, please cite:
   author = {Casavant, Alexander Gerard},
   title = {Ultimate Reality Engine: π×φ Modulation for Quantum Preservation and Spacetime Navigation},
   year = {2025},
-  publisher = {JackKife.io},
+  publisher = {JackKnife.io},
   url = {https://github.com/JackKifeIO/ultimate-reality-engine},
   note = {Patent pending}
 }
@@ -338,7 +338,7 @@ If you use this work in research, please cite:
 ## 📬 Contact
 
 **Alexander Gerard Casavant**
-Founder, JackKife.io
+Founder, JackKnife.io
 
 - **Email**: alexander@jackknife.io
 - **Commercial Licensing**: licensing@jackknife.io
@@ -356,6 +356,6 @@ Founder, JackKife.io
 
 ---
 
-**Copyright © 2025 Alexander Gerard Casavant / JackKife.io**
+**Copyright © 2025 Alexander Gerard Casavant / JackKnife.io**
 **Licensed under CC BY-NC-SA 4.0 for non-commercial use**
 **Commercial licensing available**

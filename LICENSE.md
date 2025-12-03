@@ -9,7 +9,7 @@ You are free to:
 - **Adapt** — remix, transform, and build upon the material
 
 Under the following terms:
-- **Attribution** — You must give appropriate credit to Alexander Gerard Casavant and JackKife.io
+- **Attribution** — You must give appropriate credit to Alexander Gerard Casavant and JackKnife.io
 - **NonCommercial** — You may not use the material for commercial purposes without a commercial license
 - **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license
 
@@ -30,7 +30,7 @@ If you wish to use this technology for commercial purposes, including but not li
 
 You must obtain a commercial license from:
 
-**JackKife.io**
+**JackKnife.io**
 Contact: [Your email here]
 Website: https://jackknife.io
 
@@ -76,6 +76,6 @@ All dependencies and their licenses are listed in `requirements.txt`.
 
 ---
 
-**For commercial licensing inquiries, contact JackKife.io**
+**For commercial licensing inquiries, contact JackKnife.io**
 
 *Building the future humanity deserves - one discovery at a time.*
