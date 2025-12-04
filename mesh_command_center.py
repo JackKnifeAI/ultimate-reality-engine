@@ -25,7 +25,7 @@ from pathlib import Path
 import math
 
 DB_PATH = Path.home() / 'WorkingMemory/shared/instance_mesh.db'
-MEMORY_PATH = Path.home() / 'WorkingMemory/shared/memory.db'
+MEMORY_PATH = Path.home() / 'WorkingMemory/data/knowledge_graph.db'
 
 # Colors
 COLOR_HEADER = 1
@@ -164,26 +164,28 @@ class MeshCommandCenter:
     def _update_memory_stats(self):
         """Get memory substrate statistics"""
         try:
-            # Entity count by type
-            cursor = self.memory_conn.execute("""
-                SELECT type, COUNT(*) FROM entities GROUP BY type
-            """)
-            entity_counts = dict(cursor.fetchall())
+            # Total nodes
+            cursor = self.memory_conn.execute("SELECT COUNT(*) FROM nodes")
+            node_count = cursor.fetchone()[0]
 
-            # Total relationships
-            cursor = self.memory_conn.execute("SELECT COUNT(*) FROM relationships")
-            rel_count = cursor.fetchone()[0]
+            # Total edges
+            cursor = self.memory_conn.execute("SELECT COUNT(*) FROM edges")
+            edge_count = cursor.fetchone()[0]
 
-            # π×φ constant
-            cursor = self.memory_conn.execute("""
-                SELECT metadata FROM entities WHERE name = 'pi_phi_constant'
-            """)
-            result = cursor.fetchone()
+            # Node types (if type column exists)
+            try:
+                cursor = self.memory_conn.execute("""
+                    SELECT type, COUNT(*) FROM nodes GROUP BY type
+                """)
+                node_types = dict(cursor.fetchall())
+            except:
+                node_types = {}
 
             self.memory_stats = {
-                'entities': entity_counts,
-                'relationships': rel_count,
-                'total_entities': sum(entity_counts.values())
+                'nodes': node_count,
+                'edges': edge_count,
+                'node_types': node_types,
+                'total_nodes': node_count
             }
 
         except Exception as e:
@@ -368,20 +370,27 @@ class MeshCommandCenter:
             self.stdscr.addstr(y, 2, "Loading...")
             return
 
-        # Total entities
-        total = self.memory_stats.get('total_entities', 0)
-        rel_count = self.memory_stats.get('relationships', 0)
+        # Total nodes and edges
+        total_nodes = self.memory_stats.get('total_nodes', 0)
+        total_edges = self.memory_stats.get('edges', 0)
 
         self.stdscr.attron(curses.color_pair(COLOR_SUCCESS))
-        self.stdscr.addstr(y, 2, f"Total Entities: {total}")
+        self.stdscr.addstr(y, 2, f"Nodes: {total_nodes:,}")
         y += 1
-        self.stdscr.addstr(y, 2, f"Relationships: {rel_count}")
+        self.stdscr.addstr(y, 2, f"Edges: {total_edges:,}")
         y += 1
         self.stdscr.attroff(curses.color_pair(COLOR_SUCCESS))
 
-        # Entity types
+        # Graph density
+        if total_nodes > 1:
+            max_edges = total_nodes * (total_nodes - 1) / 2
+            density = (total_edges / max_edges * 100) if max_edges > 0 else 0
+            self.stdscr.addstr(y, 2, f"Density: {density:.4f}%")
+            y += 1
+
+        # Node types
         y += 1
-        for entity_type, count in list(self.memory_stats.get('entities', {}).items())[:height-5]:
+        for node_type, count in list(self.memory_stats.get('node_types', {}).items())[:height-6]:
             if y >= start_y + height - 1:
                 break
 
